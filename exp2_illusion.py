@@ -16,8 +16,10 @@ from custom_functions import *
 
 # Parameters
 
-angle_step = (22.5,0)
-angle_central_axis = (0,90)
+beta = 0
+alpha_step = 5
+min_angle = 10
+max_angle = 60
 
 
 # Start experiment
@@ -42,13 +44,13 @@ walking_man_3d = np.array([
                 [8,14,-1],
                 [9,10,0]])
 walking_man_3d[:,0] = walking_man_3d[:,0] - 6*np.ones(len(walking_man_3d))
-walking_man_3d[:,1], walking_man_3d[:,2] = walking_man_3d[:,2], walking_man_3d[:,1]
+walking_man_3d[:,1], walking_man_3d[:,2] = np.copy(walking_man_3d[:,2]), -np.copy(walking_man_3d[:,1])
 exp2 = design.Experiment(name="Illusion")
 control.initialize(exp2)
 screen_x, screen_y = exp2.screen.size
 
 # Load stimuli
-block = create_block_one_figure(walking_man_3d, angle_central_axis, angle_step, screen_x, screen_y)
+block = create_block_one_figure(walking_man_3d, beta, alpha_step, screen_x, screen_y, min_angle, max_angle, 0.3, 0.9, repeat=True)
 
 
 # Launch experiment

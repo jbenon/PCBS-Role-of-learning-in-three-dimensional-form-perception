@@ -18,8 +18,9 @@ from custom_functions import *
 
 nb_items = 2
 nb_points = 12
-angle_step = (20,20)
-angle_central_axis = (45,45)
+beta = 45
+alpha_step = 20
+max_angle = 360
 
 
 # Start experiment
@@ -41,9 +42,9 @@ screen_x, screen_y = exp.screen.size
 list_blocks_setA = []
 list_blocks_setB = []
 for structure_3d in set_A:
-    list_blocks_setA.append(create_block_one_figure(structure_3d, angle_central_axis, angle_step, screen_x, screen_y))
+    list_blocks_setA.append(create_block_one_figure(structure_3d, beta, alpha_step, screen_x, screen_y, max_angle))
 for structure_3d in set_B:
-    list_blocks_setB.append(create_block_one_figure(structure_3d, angle_central_axis, angle_step, screen_x, screen_y))
+    list_blocks_setB.append(create_block_one_figure(structure_3d, beta, alpha_step, screen_x, screen_y, max_angle))
 question = stimuli.TextLine(text="Did the object look rigid?", position = (0, 0))
 yes = stimuli.TextLine(text="◄ Yes", position = (-50, -40))
 no = stimuli.TextLine(text="No ►", position = (50, -40))
