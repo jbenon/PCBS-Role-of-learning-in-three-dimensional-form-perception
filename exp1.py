@@ -1,10 +1,3 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.animation as animation
-from math import *
-from expyriment import control, stimuli, io, design, misc
-
 import sys
 # Used to import the modules : relative paths in Python do not work on my computer.
 sys.path.append('D:/Documents/Cogmaster/M1S2/PCBS/project/')
@@ -12,18 +5,16 @@ sys.path.append('D:/Documents/Cogmaster/M1S2/PCBS/project/')
 from custom_functions import *
 
 
-## Experiment 1
+## Parameters
 
-# Parameters
-
-nb_items = 2
+nb_items = 5
 nb_points = 12
 beta = 45
 alpha_step = 20
 max_angle = 360
 
 
-# Start experiment
+## Start experiment
 
 np.random.seed(42)
 
@@ -38,20 +29,20 @@ exp = design.Experiment(name="First experiment")
 control.initialize(exp)
 screen_x, screen_y = exp.screen.size
 
-# Load stimuli
+## Load stimuli
+
 list_blocks_setA = []
 list_blocks_setB = []
 for structure_3d in set_A:
-    list_blocks_setA.append(create_block_one_figure(structure_3d, beta, alpha_step, screen_x, screen_y, max_angle))
+    list_blocks_setA.append(create_block_one_3d_structure(structure_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y))
 for structure_3d in set_B:
-    list_blocks_setB.append(create_block_one_figure(structure_3d, beta, alpha_step, screen_x, screen_y, max_angle))
+    list_blocks_setB.append(create_block_one_3d_structure(structure_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y))
 question = stimuli.TextLine(text="Did the object look rigid?", position = (0, 0))
 yes = stimuli.TextLine(text="◄ Yes", position = (-50, -40))
 no = stimuli.TextLine(text="No ►", position = (50, -40))
 pause = stimuli.TextLine(text="Pause")
 
-
-# Launch experiment
+## Launch experiment
 control.start(exp)
 group = exp.subject % 3
 

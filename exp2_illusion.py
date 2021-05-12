@@ -1,10 +1,3 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.animation as animation
-from math import *
-from expyriment import control, stimuli, io, design, misc
-
 import sys
 # Used to import the modules : relative paths in Python do not work on my computer.
 sys.path.append('D:/Documents/Cogmaster/M1S2/PCBS/project/')
@@ -12,9 +5,7 @@ sys.path.append('D:/Documents/Cogmaster/M1S2/PCBS/project/')
 from custom_functions import *
 
 
-## Experiment 2
-
-# Parameters
+## Parameters
 
 beta = 0
 alpha_step = 5
@@ -22,7 +13,7 @@ min_angle = 10
 max_angle = 60
 
 
-# Start experiment
+## Start experiment
 
 walking_man_3d = np.array([
                 [0, 0, -0.4],
@@ -49,11 +40,11 @@ exp2 = design.Experiment(name="Illusion")
 control.initialize(exp2)
 screen_x, screen_y = exp2.screen.size
 
-# Load stimuli
-block = create_block_one_figure(walking_man_3d, beta, alpha_step, screen_x, screen_y, min_angle, max_angle, 0.3, 0.9, repeat=True)
+## Load stimuli
 
+block = create_block_one_3d_structure(structure_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y, structure_width=0.3, structure_height=0.9)
 
-# Launch experiment
+## Launch experiment
 control.start(exp2)
 display_block(exp2, block)
 control.end(exp2)
