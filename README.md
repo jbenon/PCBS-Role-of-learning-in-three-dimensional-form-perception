@@ -3,6 +3,9 @@
 
 This project aims at reproducing part of the experiment conducted by Pawan Sinha and Tomaso Poggio in 1996, that was described in the article [Role of learning in three dimensional form perception](https://www.nature.com/articles/384460a0).
 
+**Table of contents:**
+
+
 ## Description of the original experiment
 
 ### The role of learning in shape perception
@@ -23,15 +26,85 @@ In order to project 3D shapes on a plane, one first defines this plane through i
 <p align="center">
  <img src="https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/9fea967ac9697fc233f4cd83255bb4ecbe609760/scheme_3d_vector_defined_by_two_angles.png?raw=True" height=350 width=350>
 </p>
+
+*Fig. 1: The angle alpha goes from the x-axis to the projection of the normal vector on the xy-plane. The angle beta goes from the y-axis to the projection of the normal vector on the yz-plane.*
 Then the points are projected on the plane with succesive transformation matrix.
 
 To reproduce the illusion that the figure rotates and the projection plane stays still, one moves the projection plane around the rotation axis of the figure.
 <p align="center">
- <img src="https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/36ec6b3e0fdc957525350bb3b58cd8634a98fadc/scheme_rotating_structure_and_rotating_plane.png?raw=True" width=900>
+ <img src="https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/36ec6b3e0fdc957525350bb3b58cd8634a98fadc/scheme_rotating_structure_and_rotating_plane.png?raw=True" width=800>
 </p>
 
-*Green vectors represent the vectors normal to the plane. Green dotted vectors represent other position of the normal vector while the plane rotates around the axis. Left: the figure rotates while the plane doesn't move. Right: the plane rotates while the figure doesn't move.*
+*Fig. 2: Green vectors represent the vectors normal to the plane. Green dotted vectors represent other position of the normal vector while the plane rotates around the axis. Left: the figure rotates while the plane doesn't move. Right: the plane rotates while the figure doesn't move.*
 
 ## How to launch your script
+Please download the files `custom_functions.py`, `exp1.py`, `analyse_data_exp1.py` and `illusion.py`, as well as the folder `example_data_exp1`, and make sure you keep the following architecture:
+
+```
+├─ custom_functions.py
+├─ exp1.py
+├─ analyse_data_exp1.py
+├─ illusion.py
+└─ example_data_exp1/
+   ├─ exp1_subject_1.xpd
+   ├─ exp1_subject_2.xpd
+   └─ ...
+```
+
+### Experiment 1
+To launch `exp1.py`, simply use the command:
+``` sh
+python exp1.py
+```
+Your group will be attributed depended on the value of subject ID you choose in the beginning.
+
+### Analyse data experiment 1
+When you run `exp1.py`, two folders are created: `data` and `event`. Your architecture should then be:
+```
+├─ custom_functions.py
+├─ exp1.py
+├─ analyse_data_exp1.py
+├─ illusion.py
+├─ example_data_exp1/
+│  ├─ exp1_subject_1.xpd
+│  ├─ exp1_subject_2.xpd
+│  └─ ...
+├─ data/
+│  ├─ exp1_01_date.xpd
+│  ├─ exp1_02_date.xpd
+│  └─ ...
+└─ event/
+   └─ ...
+```
++ If you want to analyse your own data, use the command:
+``` sh
+python analyse_data_exp1.py data
+```
+If you changed the name of the folder containing the data, just put the new name instead of `data`.
+The script will display two figures analysing your data, and register them in your folder with the name `data_answers_by_group_and_set.png` and `data_answers_by_type_of_block.png`.
+If you want to customize the name of your figures (to save different versions of the figures without changing the name of `data` for example), use the command:
+``` sh
+python analyse_data_exp1.py data custom_name
+```
+The figures will now be saved as `datacustom_name_answers_by_group_and_set.png` and `datacustom_name_answers_by_type_of_block.png`.
++ If you don't have data to analyze, you can test the script on fictive data:
+``` sh
+python analyse_data_exp1.py
+```
+This command will simply use the fictive data that are contained in the folder `example_data_exp1`.
 
 
+### Illusion
+To launch `illusion.py`, simply use the command:
+``` sh
+python illusion.py
+```
+This will display a 3D structure which, when rotating, gives the impression that this is a 2D drawing of a walking man instead of a 3D structure.
+
+## Discussion
+With this project, I learned to use the module `expyriment`, as well as Git and GitHub with which I was very unfamiliar.
+Further improvements could consists in:
++ Implementing the second experiment of Sinha and Poggio, by changing the rotating axis between groups
++ Performing the analysis on this experiment
++ Implementing the second illusion evoked by Sinha and Poggio
++ Presenting the experiment to different participants in order to collect real data
