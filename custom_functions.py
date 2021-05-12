@@ -1,11 +1,7 @@
 ## Imports
 
 import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.animation as animation
 from math import *
-import re
 from expyriment import control, stimuli, io, design, misc
 
 

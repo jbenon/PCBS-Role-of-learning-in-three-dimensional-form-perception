@@ -1,7 +1,3 @@
-import sys
-# Used to import the modules : relative paths in Python do not work on my computer.
-sys.path.append('D:/Documents/Cogmaster/M1S2/PCBS/project/')
-
 from custom_functions import *
 
 
@@ -11,7 +7,7 @@ beta = 0
 alpha_step = 5
 min_angle = 10
 max_angle = 60
-
+repeat = True
 
 ## Start experiment
 
@@ -40,9 +36,11 @@ exp2 = design.Experiment(name="Illusion")
 control.initialize(exp2)
 screen_x, screen_y = exp2.screen.size
 
+
 ## Load stimuli
 
-block = create_block_one_3d_structure(structure_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y, structure_width=0.3, structure_height=0.9)
+block = create_block_one_3d_structure(walking_man_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y, structure_width=0.3, structure_height=0.9)
+
 
 ## Launch experiment
 control.start(exp2)
