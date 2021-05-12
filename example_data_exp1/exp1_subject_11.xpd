@@ -4,12 +4,12 @@
 
 subject_id,group,type_of_block,set,looks_rigid,rt
 11,1,test,B,False,1446
-11,1,test,B,False,818
+11,1,test,B,True,818
 11,1,test,B,False,589
 11,1,test,B,True,511
 11,1,test,B,True,872
-11,1,test,B,False,634
+11,1,test,B,True,634
 11,1,test,B,True,599
 11,1,test,B,False,634
-11,1,test,B,False,490
+11,1,test,B,True,490
 11,1,test,B,True,872

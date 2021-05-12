@@ -3,13 +3,13 @@
 # with the command line 'python analyse_data_exp1.py'
 
 subject_id,group,type_of_block,set,looks_rigid,rt
-5,1,test,B,False,1446
+5,1,test,B,True,1446
 5,1,test,B,False,818
 5,1,test,B,True,589
-5,1,test,B,False,511
+5,1,test,B,True,511
 5,1,test,B,False,872
 5,1,test,B,False,634
 5,1,test,B,False,599
 5,1,test,B,True,634
-5,1,test,B,False,490
+5,1,test,B,True,490
 5,1,test,B,True,511
