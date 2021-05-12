@@ -45,8 +45,8 @@ for group in range(3):
             std_rigid_by_group_and_set[group][set] = 0
 
 # Processing the answers by train/test blocks
-groups_and_sets_for_train_blocks = [(0,0), (2,1)]
-groups_and_sets_for_test_blocks = [(0,1), (1,0), (1,1), (2,0)]
+groups_and_sets_for_train_blocks = [(0,0), (1,0), (1,1), (2,1)]
+groups_and_sets_for_test_blocks = [(0,1), (2,0)]
 answers_train_blocks = []
 answers_test_blocks = []
 for (group, set) in groups_and_sets_for_train_blocks:
@@ -77,12 +77,12 @@ plt.close()
 fig, ax = plt.subplots(1, 3, figsize=(12,7), sharey=True)
 plt.subplots_adjust(left=0.06, right=0.99, bottom=0.05, top=0.9, wspace=0.2)
 plt.suptitle('Answers by group and by set of images')
-legend_elements = [Patch(facecolor=color_train, label='Training'), Patch(facecolor=color_test, label='Novel')]
+legend_elements = [Patch(facecolor=color_train, label='Training'), Patch(facecolor=color_test, label='Testing')]
 for group in range(3):
     if group==0:
         color_bars = [color_train, color_test]
     elif group==1:
-        color_bars = [color_test, color_test]
+        color_bars = [color_train, color_train]
     else:
         color_bars = [color_test, color_train]
     ax[group].bar([1,2], propor_rigid_by_group_and_set[group], color=color_bars, tick_label=['Set A', 'Set B'], yerr = std_rigid_by_group_and_set[group], error_kw=dict(ecolor='grey'))
@@ -96,7 +96,7 @@ plt.savefig(folder[:-1]+'_answers_by_group_and_set.png')
 
 # Plot data by train/test set
 fig, ax = plt.subplots(1, 1, figsize=(7,5))
-ax.bar([1,2], [propor_rigid_train_blocks, propor_rigid_test_blocks], color=[color_train, color_test], tick_label=['Training', 'Novel'], yerr=[std_rigid_train_blocks, std_rigid_test_blocks], error_kw=dict(ecolor='grey'))
+ax.bar([1,2], [propor_rigid_train_blocks, propor_rigid_test_blocks], color=[color_train, color_test], tick_label=['Training', 'Testing'], yerr=[std_rigid_train_blocks, std_rigid_test_blocks], error_kw=dict(ecolor='grey'))
 ax.set_ylim(0,1)
 plt.title('Answers by type of block')
 plt.ylabel('Proportion of structures judged rigid')
