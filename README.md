@@ -19,9 +19,19 @@ This illusion is cited as an example by Sinha and Poggio: by creating a shape an
 ## Overview of the computation
 
 In order to project 3D shapes on a plane, one first defines this plane through its normal vector, which is characterized by two angles alpha and beta:
-![The 3D normal vector is defined through two angles.](https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/9fea967ac9697fc233f4cd83255bb4ecbe609760/scheme_3d_vector_defined_by_two_angles.png?raw=true)
+
+<p align="center">
+ <img src="https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/9fea967ac9697fc233f4cd83255bb4ecbe609760/scheme_3d_vector_defined_by_two_angles.png?raw=True" height=350 width=350>
+</p>
 Then the points are projected on the plane with succesive transformation matrix.
 
 To reproduce the illusion that the figure rotates and the projection plane stays still, one moves the projection plane around the rotation axis of the figure.
-![Instead of rotating the figure around the axis, one rotates the plane.](https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/36ec6b3e0fdc957525350bb3b58cd8634a98fadc/scheme_rotating_structure_and_rotating_plane.png?raw=True)
+<p align="center">
+ <img src="https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/36ec6b3e0fdc957525350bb3b58cd8634a98fadc/scheme_rotating_structure_and_rotating_plane.png?raw=True" width=900>
+</p>
+
 *Green vectors represent the vectors normal to the plane. Green dotted vectors represent other position of the normal vector while the plane rotates around the axis. Left: the figure rotates while the plane doesn't move. Right: the plane rotates while the figure doesn't move.*
+
+## How to launch your script
+
+
