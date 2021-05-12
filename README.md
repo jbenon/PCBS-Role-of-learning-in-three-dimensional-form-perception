@@ -23,6 +23,8 @@ In order to project 3D shapes on a plane, one first defines this plane through i
 <p align="center">
  <img src="https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/9fea967ac9697fc233f4cd83255bb4ecbe609760/scheme_3d_vector_defined_by_two_angles.png?raw=True" height=350 width=350>
 </p>
+
+*Fig. 1: The angle alpha goes from the x-axis to the projection of the normal vector on the xy-plane. The angle beta goes from the y-axis to the projection of the normal vector on the yz-plane.*
 Then the points are projected on the plane with succesive transformation matrix.
 
 To reproduce the illusion that the figure rotates and the projection plane stays still, one moves the projection plane around the rotation axis of the figure.
@@ -30,8 +32,26 @@ To reproduce the illusion that the figure rotates and the projection plane stays
  <img src="https://github.com/jbenon/PCBS-Role-of-learning-in-three-dimensional-form-perception/blob/36ec6b3e0fdc957525350bb3b58cd8634a98fadc/scheme_rotating_structure_and_rotating_plane.png?raw=True" width=900>
 </p>
 
-*Green vectors represent the vectors normal to the plane. Green dotted vectors represent other position of the normal vector while the plane rotates around the axis. Left: the figure rotates while the plane doesn't move. Right: the plane rotates while the figure doesn't move.*
+*Fig. 2: Green vectors represent the vectors normal to the plane. Green dotted vectors represent other position of the normal vector while the plane rotates around the axis. Left: the figure rotates while the plane doesn't move. Right: the plane rotates while the figure doesn't move.*
 
 ## How to launch your script
+Please download the files `custom_functions.py`, `exp1.py`, `analyse_data_exp1.py` and `illusion.py`, as well as the folder `example_data_exp1`, and make sure you keep the following architecture:
 
+├─ `custom_functions.py`
+
+├─ `exp1.py`
+
+├─ `analyse_data_exp1.py`
+
+├─ `illusion.py`
+
+└─ `example_data_exp1`
+
+### Experiment 1
+
+To launch `exp1.py`, simply use this command:
+``` sh
+python exp1.py
+```
+This will launch the experiment 1 and 
 
