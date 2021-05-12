@@ -1,0 +1,25 @@
+# Expyriment 0.10.0 (Python 3.6.2), .xpd-file, coding: cp1252
+# These are fictive data that can be used to test the script analyse_data_exp1.py
+# with the command line 'python analyse_data_exp1.py'
+
+subject_id,group,type_of_block,set,looks_rigid,rt
+7,0,train,A,False,1446
+7,0,train,A,True,818
+7,0,train,A,True,589
+7,0,train,A,False,511
+7,0,train,A,True,872
+7,0,train,A,True,634
+7,0,train,A,True,599
+7,0,train,A,False,634
+7,0,train,A,True,490
+7,0,train,A,True,526
+7,0,test,B,True,1446
+7,0,test,B,False,818
+7,0,test,B,False,589
+7,0,test,B,False,511
+7,0,test,B,True,872
+7,0,test,B,False,634
+7,0,test,B,True,599
+7,0,test,B,False,634
+7,0,test,B,True,490
+7,0,test,B,True,526

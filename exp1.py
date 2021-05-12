@@ -1,10 +1,16 @@
-from custom_functions import *
+"""
+This script recreates the first experience from Sinha and Poggio (1996).
+It saves the data from the experiment in two subfiles, data and event.
+The data can then be analyzed with the script analyse_data_exp1.py.
+"""
 
+
+from custom_functions import *
 
 ## Parameters
 
-nb_items = 5
-nb_points = 12
+nb_items = 10
+nb_points = 8
 beta = 45
 alpha_step = 20
 min_angle = 0
@@ -48,21 +54,21 @@ pause = stimuli.TextLine(text="Pause")
 ## Launch experiment
 
 control.start(exp)
-group = exp.subject % 3
-exp.design.add_data_variable_names(["group", "type_of_block", "set", "looks_rigid", "rt"])
+group = (exp.subject-1) % 3
+exp.add_data_variable_names(["group", "type_of_block", "set", "looks_rigid", "rt"])
 
 if group == 0:
     # First group : set A / set B
     for training_block in list_blocks_setA:
         key, rt = display_block(exp, training_block, (question, yes, no))
-        exp.data.add([group, 'train', 'A', training_block.id, key==KEY_RIGID, rt])
+        exp.data.add([group, 'train', 'A', key==KEY_RIGID, rt])
     canvas = stimuli.BlankScreen()
     pause.plot(canvas)
     canvas.present()
     exp.clock.wait(5000)
     for testing_block in list_blocks_setB:
         key, rt = display_block(exp, testing_block, (question, yes, no))
-        exp.data.add([group, 'test', 'B', training_block.id, key==KEY_RIGID, rt])
+        exp.data.add([group, 'test', 'B', key==KEY_RIGID, rt])
 
 elif group == 1:
     # Second group : set A or set B
@@ -70,23 +76,23 @@ elif group == 1:
     if choice:
         for testing_block in list_blocks_setA:
             key, rt = display_block(exp, testing_block, (question, yes, no))
-            exp.data.add([group, 'test', 'A', testing_block.id, key==KEY_RIGID, rt])
+            exp.data.add([group, 'test', 'A', key==KEY_RIGID, rt])
     else:
         for testing_block in list_blocks_setB:
             key, rt = display_block(exp, testing_block, (question, yes, no))
-            exp.data.add([group, 'test', 'B', testing_block.id, key==KEY_RIGID, rt])
+            exp.data.add([group, 'test', 'B', key==KEY_RIGID, rt])
 
 else:
     # Third group : set B / set A
     for training_block in list_blocks_setB:
         key, rt = display_block(exp, training_block, (question, yes, no))
-        exp.data.add([group, 'test', 'B', training_block.id, key==KEY_RIGID, rt])
+        exp.data.add([group, 'train', 'B', key==KEY_RIGID, rt])
     canvas = stimuli.BlankScreen()
     pause.plot(canvas)
     canvas.present()
     exp.clock.wait(5000)
     for testing_block in list_blocks_setA:
         key, rt = display_block(exp, testing_block, (question, yes, no))
-        exp.data.add([group, 'train', 'B', training_block.id, key==KEY_RIGID, rt])
+        exp.data.add([group, 'test', 'A', key==KEY_RIGID, rt])
     
 control.end()

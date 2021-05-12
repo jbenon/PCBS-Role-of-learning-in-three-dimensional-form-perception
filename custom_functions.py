@@ -1,5 +1,3 @@
-## Imports
-
 import numpy as np
 from math import *
 from expyriment import control, stimuli, io, design, misc
@@ -128,8 +126,8 @@ def prepare_views_3d_structure_rocking_around_axis_z(structure_3d, beta, alpha_s
 
 def create_block_one_3d_structure(structure_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y, structure_width=0.9, structure_height=0.9):
     (all_x, all_y) = prepare_views_3d_structure_rocking_around_axis_z(structure_3d, beta, alpha_step, min_angle, max_angle, repeat)
-    structure_width = screen_x*structure_width
-    structure_height = screen_y*structure_height
+    structure_width = screen_x*structure_width-40
+    structure_height = screen_y*structure_height-40
     all_x = normalize_list(all_x, -structure_width//2, structure_width//2)
     all_y = normalize_list(all_y, -structure_height//2, structure_height//2)
     block = design.Block()
