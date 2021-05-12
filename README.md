@@ -31,7 +31,7 @@ In order to project 3D shapes on a plane, one first defines this plane through i
  <img src="scheme_3d_vector_defined_by_two_angles.png?raw=True" height=350 width=350>
 </p>
 
-*Fig. 1: The angle alpha goes from the x-axis to the projection of the normal vector on the xy-plane. The angle beta goes from the y-axis to the projection of the normal vector on the yz-plane.*
+*Fig. 1: The angle alpha goes from the x-axis to the projection of the normal vector on the xy-plane. The angle beta goes from this projection to the normal vector.*
 Then the points are projected on the plane with succesive transformation matrix.
 
 To reproduce the illusion that the figure rotates and the projection plane stays still, one moves the projection plane around the rotation axis of the figure.
