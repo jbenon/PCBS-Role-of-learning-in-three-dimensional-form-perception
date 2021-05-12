@@ -1,9 +1,13 @@
 # PCBS: Role of learning in three dimensional form perception
 ---
 
-This project aims at reproducing part of the experiment conducted by Pawan Sinha and Tomaso Poggio in 1996, that was described in the article [Role of learning in three dimensional form perception](https://www.nature.com/articles/384460a0).
+This project aims at reproducing part of the experiment conducted by Pawan Sinha and Tomaso Poggio in 1996, that was described in the article [Role of learning in three dimensional form perception](Sinha_Poggio_1996-Role_of_learning_in_three-dimensional_form_perception.pdf).
 
 **Table of contents:**
++ [Description of the original experiment](#description-of-the-original-experiment)
++ [Quick overview of the computation](#quick-overview-of-the-computation)
++ [How to launch the scripts](#how-to-launch-the-scripts)
++ [Discussion](#discussion)
 
 
 ## Description of the original experiment
@@ -19,7 +23,7 @@ Sinha and Poggio showed that the participants reported non-rigidity more often d
 ### Illusion: the walking man
 This illusion is cited as an example by Sinha and Poggio: by creating a shape and making it rotate accordingly, one can have the feeling that it is a man walking in 2D rather than a 3D shape rotating.
 
-## Overview of the computation
+## Quick overview of the computation
 
 In order to project 3D shapes on a plane, one first defines this plane through its normal vector, which is characterized by two angles alpha and beta:
 
@@ -37,7 +41,7 @@ To reproduce the illusion that the figure rotates and the projection plane stays
 
 *Fig. 2: Green vectors represent the vectors normal to the plane. Green dotted vectors represent other position of the normal vector while the plane rotates around the axis. Left: the figure rotates while the plane doesn't move. Right: the plane rotates while the figure doesn't move.*
 
-## How to launch your script
+## How to launch the scripts
 Please download the files `custom_functions.py`, `exp1.py`, `analyse_data_exp1.py` and `illusion.py`, as well as the folder `example_data_exp1`, and make sure you keep the following architecture:
 
 ```
@@ -92,7 +96,12 @@ The figures will now be saved as `datacustom_name_answers_by_group_and_set.png` 
 python analyse_data_exp1.py
 ```
 This command will simply use the fictive data that are contained in the folder `example_data_exp1`.
+Here are the resulting figures:
+<p align="center">
+ <img src="example_data_exp1_answers_by_group_and_set.png?raw=True" width=600>
+</p>
 
+*Fig. 3: Proportion of structures that were judged rigid with the standard deviation calculated across subjects, divided by group and set of images. It appears that structures that were presenting during the training phase are more likely to be judged rigid than structures presented during the testing phase.*
 
 ### Illusion
 To launch `illusion.py`, simply use the command:
