@@ -5,8 +5,8 @@ from expyriment import control, stimuli, io, design, misc
 
 ## Generate and visualize the 3D structure
 
-def generate_random_3d_structure(nb_points):
-    structure = np.random.random_sample((nb_points, 3))
+def generate_random_3d_structure(NB_POINTS):
+    structure = np.random.random_sample((NB_POINTS, 3))
     return structure
 
 
@@ -27,13 +27,13 @@ def normalize_vector(vec):
         return vec/norm
 
 
-def compute_normal_vector(alpha, beta):
+def compute_normal_vector(alpha, BETA):
     alpha = np.radians(alpha)
-    beta = np.radians(beta)
+    BETA = np.radians(BETA)
     vec = np.zeros(3)
-    vec[0] = cos(alpha)*cos(beta)
-    vec[1] = sin(alpha)*cos(beta)
-    vec[2] = sin(beta)
+    vec[0] = cos(alpha)*cos(BETA)
+    vec[1] = sin(alpha)*cos(BETA)
+    vec[2] = sin(BETA)
     return(normalize_vector(vec))
 
 
@@ -68,12 +68,12 @@ def extract_2d_coords_from_projected_structure(structure_proj, transf_matrix):
     return np.array(points_2d)
 
 
-def project_3d_structure_on_2d_plane(structure_3d, alpha, beta):
-    normal_vec = compute_normal_vector(alpha, beta)
+def project_3d_structure_on_2d_plane(structure_3d, alpha, BETA):
+    normal_vec = compute_normal_vector(alpha, BETA)
     structure_proj = project_3d_structure_on_3d_plane(structure_3d, normal_vec)
     basis = create_basis_to_extract_2d_coords_from_projected_structure(structure_proj, normal_vec)
     transf_matrix = compute_transformation_matrix_from_basis(basis)
-    if beta==45 or (alpha >0 and alpha <=180):
+    if BETA==45 or (alpha >0 and alpha <=180):
         points_2d = extract_2d_coords_from_projected_structure(structure_proj, transf_matrix)
         points_array = np.array([points_2d[:,0], points_2d[:,1]])
     else:
@@ -90,20 +90,20 @@ def normalize_list(list, new_min, new_max):
     return list
 
 
-def all_normal_vectors_rocking_around_axis_z(beta, alpha_step, min_angle, max_angle):
-    nb_steps = int((max_angle-min_angle)//alpha_step)
-    list_alpha = [min_angle+i*alpha_step for i in range(nb_steps)]
-    list_beta = [beta for i in range(nb_steps)]
-    return (list_alpha, list_beta)
+def all_normal_vectors_rocking_around_axis_z(BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE):
+    nb_steps = int((MAX_ANGLE-MIN_ANGLE)//ALPHA_STEP)
+    list_alpha = [MIN_ANGLE+i*ALPHA_STEP for i in range(nb_steps)]
+    list_BETA = [BETA for i in range(nb_steps)]
+    return (list_alpha, list_BETA)
 
 
-def return_2d_structure_for_all_positions_of_normal_vector(structure_3d, list_alpha, list_beta):
+def return_2d_structure_for_all_positions_of_normal_vector(structure_3d, list_alpha, list_BETA):
     all_points = []
     all_structures = []
     all_normal_vec = []
-    for i, beta in enumerate(list_beta):
+    for i, BETA in enumerate(list_BETA):
         alpha = list_alpha[i]
-        (points_2d, structure_proj, normal_vec) = project_3d_structure_on_2d_plane(structure_3d, alpha, beta)
+        (points_2d, structure_proj, normal_vec) = project_3d_structure_on_2d_plane(structure_3d, alpha, BETA)
         all_points.append(points_2d)
         all_structures.append(structure_proj)
         all_normal_vec.append(normal_vec)
@@ -113,19 +113,19 @@ def return_2d_structure_for_all_positions_of_normal_vector(structure_3d, list_al
     return [all_points, all_structures, all_normal_vec]
 
 
-def prepare_views_3d_structure_rocking_around_axis_z(structure_3d, beta, alpha_step, min_angle, max_angle, repeat):
-    list_alpha, list_beta = all_normal_vectors_rocking_around_axis_z(beta, alpha_step, min_angle, max_angle)
-    if repeat:
+def prepare_views_3d_structure_rocking_around_axis_z(structure_3d, BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE, REPEAT):
+    list_alpha, list_BETA = all_normal_vectors_rocking_around_axis_z(BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE)
+    if REPEAT:
         list_alpha = np.concatenate((list_alpha, np.flip(list_alpha, axis=0)), axis=0)
-        list_beta = np.concatenate((list_beta, np.flip(list_beta, axis=0)), axis=0)
-    [all_points, _, _] = return_2d_structure_for_all_positions_of_normal_vector(structure_3d, list_alpha, list_beta)
+        list_BETA = np.concatenate((list_BETA, np.flip(list_BETA, axis=0)), axis=0)
+    [all_points, _, _] = return_2d_structure_for_all_positions_of_normal_vector(structure_3d, list_alpha, list_BETA)
     all_x = all_points[:, 0, :]
     all_y = all_points[:, 1, :]
     return (all_x, all_y)
 
 
-def create_block_one_3d_structure(structure_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y, structure_width=0.9, structure_height=0.9):
-    (all_x, all_y) = prepare_views_3d_structure_rocking_around_axis_z(structure_3d, beta, alpha_step, min_angle, max_angle, repeat)
+def create_block_one_3d_structure(structure_3d, BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE, REPEAT, screen_x, screen_y, structure_width=0.9, structure_height=0.9):
+    (all_x, all_y) = prepare_views_3d_structure_rocking_around_axis_z(structure_3d, BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE, REPEAT)
     structure_width = screen_x*structure_width-40
     structure_height = screen_y*structure_height-40
     all_x = normalize_list(all_x, -structure_width//2, structure_width//2)

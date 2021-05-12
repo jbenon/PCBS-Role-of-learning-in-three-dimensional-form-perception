@@ -9,13 +9,13 @@ from custom_functions import *
 
 ## Parameters
 
-nb_items = 10
-nb_points = 8
-beta = 45
-alpha_step = 20
-min_angle = 0
-max_angle = 360
-repeat = False
+NB_ITEMS = 10
+NB_POINTS = 8
+BETA = 45
+ALPHA_STEP = 20
+MIN_ANGLE = 0
+MAX_ANGLE = 360
+REPEAT = False
 
 KEY_RIGID = misc.constants.K_LEFT
 KEY_NONRIGID = misc.constants.K_RIGHT
@@ -28,9 +28,9 @@ np.random.seed(42)
 set_A = []
 set_B = []
 
-for i in range(nb_items):
-    set_A.append(generate_random_3d_structure(nb_points))
-    set_B.append(generate_random_3d_structure(nb_points))
+for i in range(NB_ITEMS):
+    set_A.append(generate_random_3d_structure(NB_POINTS))
+    set_B.append(generate_random_3d_structure(NB_POINTS))
 
 exp = design.Experiment(name="First experiment")
 control.initialize(exp)
@@ -42,9 +42,9 @@ screen_x, screen_y = exp.screen.size
 list_blocks_setA = []
 list_blocks_setB = []
 for structure_3d in set_A:
-    list_blocks_setA.append(create_block_one_3d_structure(structure_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y))
+    list_blocks_setA.append(create_block_one_3d_structure(structure_3d, BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE, REPEAT, screen_x, screen_y))
 for structure_3d in set_B:
-    list_blocks_setB.append(create_block_one_3d_structure(structure_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y))
+    list_blocks_setB.append(create_block_one_3d_structure(structure_3d, BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE, REPEAT, screen_x, screen_y))
 question = stimuli.TextLine(text="Did the object look rigid?", position = (0, 0))
 yes = stimuli.TextLine(text="◄ Yes", position = (-50, -40))
 no = stimuli.TextLine(text="No ►", position = (50, -40))

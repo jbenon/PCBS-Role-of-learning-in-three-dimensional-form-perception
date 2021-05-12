@@ -8,11 +8,11 @@ from custom_functions import *
 
 ## Parameters
 
-beta = 0
-alpha_step = 5
-min_angle = -45
-max_angle = 45
-repeat = True
+BETA = 0
+ALPHA_STEP = 5
+MIN_ANGLE = -45
+MAX_ANGLE = 45
+REPEAT = True
 
 ## Start experiment
 
@@ -44,7 +44,7 @@ screen_x, screen_y = exp2.screen.size
 
 ## Load stimuli
 
-block = create_block_one_3d_structure(walking_man_3d, beta, alpha_step, min_angle, max_angle, repeat, screen_x, screen_y, structure_width=0.2, structure_height=0.9)
+block = create_block_one_3d_structure(walking_man_3d, BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE, REPEAT, screen_x, screen_y, structure_width=0.2, structure_height=0.9)
 
 
 ## Launch experiment
