@@ -28,11 +28,12 @@ This illusion is cited as an example by Sinha and Poggio: by creating a shape an
 In order to project 3D shapes on a plane, one first defines this plane through its normal vector, which is characterized by two angles alpha and beta:
 
 <p align="center">
- <img src="scheme_3d_vector_defined_by_two_angles.png?raw=True" height=350 width=350>
+ <img src="3d_vector_defined_by_two_angles.png?raw=True" height=350 width=350>
 </p>
 
 *Fig. 1: The angle alpha goes from the x-axis to the projection of the normal vector on the xy-plane. The angle beta goes from this projection to the normal vector.*
-Then the points are projected on the plane with succesive transformation matrix.
+
+Then the points are projected on the plane with succesive transformation matrices.
 
 To reproduce the illusion that the figure rotates and the projection plane stays still, one moves the projection plane around the rotation axis of the figure.
 <p align="center">
@@ -101,11 +102,11 @@ If you want to customize the name of your figures (to save different versions of
 python analyse_data_exp1.py data custom_name
 ```
 The figures will now be saved as `datacustom_name_answers_by_group_and_set.png` and `datacustom_name_answers_by_type_of_block.png`.
-+ If you don't have data to analyze, you can test the script on fictive data:
++ If you don't have data to analyze, you can test the script on fictitious data:
 ``` sh
 python analyse_data_exp1.py
 ```
-This command will simply use the fictive data that are contained in the folder `example_data_exp1`.
+This command will simply use the fictitious data that are contained in the folder `example_data_exp1`.
 Here are the resulting figures:
 <p align="center">
  <img src="example_data_exp1_answers_by_group_and_set.png?raw=True" width=600>
@@ -124,14 +125,15 @@ To launch `illusion.py`, simply use the command:
 ``` sh
 python illusion.py
 ```
-This will display a 3D structure which, when rotating, gives the impression that this is a 2D drawing of a walking man instead of a 3D structure.
+This will display a 3D structure which, when rotating, gives the impression that this is a 2D drawing of a walking man instead of a 3D rotating structure.
 
 ## Discussion
-Further improvements could consists in:
+Further improvements could consist in:
 + Implementing the second experiment of Sinha and Poggio, by changing the rotating axis between groups
 + Performing the analysis on this experiment
 + Implementing the second illusion evoked by Sinha and Poggio
 + Presenting the experiment to different participants in order to collect real data
+ ---
+I use Python for four years, and I have done several projects with it (for personal or scholar purposes). I especially had to conduct two projects in machine learning and deep learning that had me learn a lot about the dedicated modules.
 
-I use Python for four years, and I have done several projects with it (for personal or scholar purposes). I especially had to conduct two projects in machine learning and deep learning that made me learn a lot about the dedicated modules.
 With this project, I learned to use the module `expyriment`, as well as Git and GitHub with which I was very unfamiliar. Maybe a full course about `expyriment` could have been a plus, since it is a bit hard to take in hand.
