@@ -3,6 +3,9 @@
 
 This project aims at reproducing part of the experiment conducted by Pawan Sinha and Tomaso Poggio in 1996, that was described in the article [Role of learning in three dimensional form perception](https://www.nature.com/articles/384460a0).
 
+**Table of contents:**
+
+
 ## Description of the original experiment
 
 ### The role of learning in shape perception
@@ -37,21 +40,24 @@ To reproduce the illusion that the figure rotates and the projection plane stays
 ## How to launch your script
 Please download the files `custom_functions.py`, `exp1.py`, `analyse_data_exp1.py` and `illusion.py`, as well as the folder `example_data_exp1`, and make sure you keep the following architecture:
 
-├─ `custom_functions.py`
-
-├─ `exp1.py`
-
-├─ `analyse_data_exp1.py`
-
-├─ `illusion.py`
-
-└─ `example_data_exp1`
+```
+├─ custom_functions.py
+├─ exp1.py
+├─ analyse_data_exp1.py
+├─ illusion.py
+└─ example_data_exp1/
+   ├─ exp1_subject_1.xpd
+   ├─ exp1_subject_2.xpd
+   └─ ...
+```
 
 ### Experiment 1
-
 To launch `exp1.py`, simply use this command:
 ``` sh
 python exp1.py
 ```
-This will launch the experiment 1 and 
+This will launch the experiment 1. Your group will be attributed depended on the value of subject ID you choose in the beginning.
+
+### Analyse data experiment 1
+
 
