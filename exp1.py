@@ -45,6 +45,7 @@ for structure_3d in set_A:
     list_blocks_setA.append(create_block_one_3d_structure(structure_3d, BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE, REPEAT, screen_x, screen_y))
 for structure_3d in set_B:
     list_blocks_setB.append(create_block_one_3d_structure(structure_3d, BETA, ALPHA_STEP, MIN_ANGLE, MAX_ANGLE, REPEAT, screen_x, screen_y))
+intro = stimuli.TextLine(text="After each motion sequence, click on the left arrow to indicate that the shape looked rigid, and on the right arrow to indicate that it looked non-rigid.")
 question = stimuli.TextLine(text="Did the object look rigid?", position = (0, 0))
 yes = stimuli.TextLine(text="◄ Yes", position = (-50, -40))
 no = stimuli.TextLine(text="No ►", position = (50, -40))
@@ -59,6 +60,10 @@ exp.add_data_variable_names(["group", "type_of_block", "set", "looks_rigid", "rt
 
 if group == 0:
     # First group : set A / set B
+    canvas = stimuli.BlankScreen()
+    intro.plot(canvas)
+    canvas.present()
+    exp.clock.wait(5000)
     for training_block in list_blocks_setA:
         key, rt = display_block(exp, training_block, (question, yes, no))
         exp.data.add([group, 'train', 'A', key==KEY_RIGID, rt])
@@ -73,6 +78,10 @@ if group == 0:
 elif group == 1:
     # Second group : set A or set B
     choice = np.random.binomial(1, 0.5)
+    canvas = stimuli.BlankScreen()
+    intro.plot(canvas)
+    canvas.present()
+    exp.clock.wait(5000)
     if choice:
         for testing_block in list_blocks_setA:
             key, rt = display_block(exp, testing_block, (question, yes, no))
@@ -84,6 +93,10 @@ elif group == 1:
 
 else:
     # Third group : set B / set A
+    canvas = stimuli.BlankScreen()
+    intro.plot(canvas)
+    canvas.present()
+    exp.clock.wait(5000)
     for training_block in list_blocks_setB:
         key, rt = display_block(exp, training_block, (question, yes, no))
         exp.data.add([group, 'train', 'B', key==KEY_RIGID, rt])
