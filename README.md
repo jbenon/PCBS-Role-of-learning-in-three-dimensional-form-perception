@@ -10,9 +10,12 @@ In the original experiment, Sinha and Poggio studied the role of learning in sha
 + Group 1: The participants underwent a training session with the set of images A, then a testing session with the set of images B.
 + Group 2: The participants only had a testing session with either the set of images A or the set of images B.
 + Group 3: The participants underwent a training session with the set of images B, then a testing session with the set of images A.
-SInha and Poggio showed that the participants reported non-rigidity more often during the training session than during the testing session, which suggests that the visual experience shapes the perception of 3D-form.
+
+Sinha and Poggio showed that the participants reported non-rigidity more often during the training session than during the testing session, which suggests that the visual experience shapes the perception of 3D-form.
 
 ### Illusion: the walking man
 This illusion is cited as an example by Sinha and Poggio: by creating a shape and making it rotate accordingly, one can have the feeling that it is a man walking in 2D rather than a 3D shape rotating.
 
-## Walk-through
+## Overview of the computation
+
+In order to project 3D shapes on a 2D plane, one first defines this plane through its normal vector, which is characterized by two angles alpha and beta:
