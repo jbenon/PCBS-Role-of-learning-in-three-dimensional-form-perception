@@ -129,6 +129,7 @@ This will display a 3D structure which, when rotating, gives the impression that
 
 ## Discussion
 Further improvements could consist in:
++ There is a warning that appears after running `illusion.py`; this should be fixed.
 + Implementing the second experiment of Sinha and Poggio, by changing the rotating axis between groups
 + Performing the analysis on this experiment
 + Implementing the second illusion evoked by Sinha and Poggio
