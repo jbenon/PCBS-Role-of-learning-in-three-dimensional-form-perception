@@ -6,7 +6,7 @@ This project aims at reproducing part of the experiment conducted by Pawan Sinha
 **Table of contents:**
 + [Description of the original experiment](#description-of-the-original-experiment)
 + [Quick overview of the computation](#quick-overview-of-the-computation)
-+ [How to launch the scripts](#how-to-launch-the-scripts)
++ [How to run the scripts](#how-to-run-the-scripts)
 + [Discussion](#discussion)
 
 
@@ -18,7 +18,7 @@ In the original experiment, Sinha and Poggio studied the role of learning in sha
 + Group 2: The participants only had a training session with either the set of images A or the set of images B.
 + Group 3: The participants underwent a training session with the set of images B, then a testing session with the set of images A.
 
-Sinha and Poggio showed that the participants reported non-rigidity more often during the training session than during the testing session, which suggests that the visual experience shapes the perception of 3D-form.
+Sinha and Poggio showed that the participants reported non-rigidity less often during the training session than during the testing session, which suggests that the visual experience shapes the perception of 3D-form.
 
 ### Illusion: the walking man
 This illusion is cited as an example by Sinha and Poggio: by creating a shape and making it rotate accordingly, one can have the feeling that it is a man walking in 2D rather than a 3D shape rotating.
@@ -41,7 +41,8 @@ To reproduce the illusion that the figure rotates and the projection plane stays
 
 *Fig. 2: Green vectors represent the vectors normal to the plane. Green dotted vectors represent other position of the normal vector while the plane rotates around the axis. Left: the figure rotates while the plane doesn't move. Right: the plane rotates while the figure doesn't move.*
 
-## How to launch the scripts
+## How to run the scripts
+
 Please download the files `custom_functions.py`, `exp1.py`, `analyse_data_exp1.py` and `illusion.py`, as well as the folder `example_data_exp1`, and make sure you keep the following architecture:
 
 ```
@@ -54,6 +55,15 @@ Please download the files `custom_functions.py`, `exp1.py`, `analyse_data_exp1.p
    ├─ exp1_subject_2.xpd
    └─ ...
 ```
+### Packages
+To properly run this project, please make sure that the following modules are installed on your computer:
++ sys
++ os
++ numpy
++ pandas
++ math
++ expyriment
++ matplotlib
 
 ### Experiment 1
 To launch `exp1.py`, simply use the command:
@@ -117,9 +127,11 @@ python illusion.py
 This will display a 3D structure which, when rotating, gives the impression that this is a 2D drawing of a walking man instead of a 3D structure.
 
 ## Discussion
-With this project, I learned to use the module `expyriment`, as well as Git and GitHub with which I was very unfamiliar.
 Further improvements could consists in:
 + Implementing the second experiment of Sinha and Poggio, by changing the rotating axis between groups
 + Performing the analysis on this experiment
 + Implementing the second illusion evoked by Sinha and Poggio
 + Presenting the experiment to different participants in order to collect real data
+
+I use Python for four years, and I have done several projects with it (for personal or scholar purposes). I especially had to conduct two projects in machine learning and deep learning that made me learn a lot about the dedicated modules.
+With this project, I learned to use the module `expyriment`, as well as Git and GitHub with which I was very unfamiliar. Maybe a full course about `expyriment` could have been a plus, since it is a bit hard to take in hand.
