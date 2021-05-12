@@ -1,6 +1,8 @@
 # PCBS: Role of learning in three dimensional form perception
 ---
 
-For this PCBS project, I will implement in Python the experiments used in the article [Role of learning in three dimensional form perception](https://www.nature.com/articles/384460a0). The project contains different steps:
-+ Display a 3D figure with different angles
-+ Randomly generate a 3D figure by bending a randomly bending a wire in a 3D space
+This project aims at reproducing part of the experiment conducted by Pawan Sinha and Tomaso Poggio in 1996, that was described in the article [Role of learning in three dimensional form perception](https://www.nature.com/articles/384460a0).
+
+## Description of the original experiment
+
+In the original experiment, Sinha and Poggio studied the role of learning in shape perception. To do so, they created several 3D shapes by randomly bending a 3D wire. This shape 
